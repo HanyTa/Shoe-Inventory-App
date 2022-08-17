@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="box_radius">10dp</dimen>
-    <dimen name="edit_text_height_dimen">50dp</dimen>
+    <dimen name="edit_text_height_dimen">57dp</dimen>
+    <dimen name="image_margin_top">52dp</dimen>
+    <dimen name="margin_from_image">24dp</dimen>
+    <dimen name="separate_between_text">32dp</dimen>
+    <dimen name="button_margin_end">24dp</dimen>
+    <dimen name="button_margin_bottom">24dp</dimen>
+    <dimen name="text_margin_start">24dp</dimen>
 </resources>

@@ -9,7 +9,10 @@
             name="viewmodel"
             type="com.udacity.shoestore.viewmodels.ShoesListViewModel" />
     </data>
-
+    <!--
+    using constraint layout for complexity of views in floating button with scroll view
+     to appear with suitable way
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

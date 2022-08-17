@@ -8,8 +8,16 @@
         <variable
             name="viewmodel"
             type="com.udacity.shoestore.viewmodels.ShoesListViewModel" />
+
+        <!--        <variable-->
+        <!--            name="converter"-->
+        <!--            type="com.udacity.shoestore.utils.Converter" />-->
+
     </data>
 
+    <!--
+    using constraint layout for complex view as chaining for buttons and also for edit texts
+    -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +28,7 @@
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="@dimen/image_margin_top"
             android:src="@drawable/shoes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,9 +39,9 @@
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/edit_text_height_dimen"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/text_margin_start"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="@dimen/text_margin_start"
             android:ems="10"
             android:hint="@string/shoe_name"
             android:inputType="textPersonName"
@@ -54,7 +62,7 @@
             android:ems="10"
             android:hint="@string/shoe_size"
             android:inputType="numberDecimal"
-            android:text="@={``+ viewmodel.sizeText}"
+            android:text="@={``+viewmodel.sizeText}"
             app:layout_constraintEnd_toStartOf="@+id/company"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +108,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="@dimen/button_margin_end"
+            android:layout_marginBottom="@dimen/button_margin_bottom"
             android:onClick="@{() -> viewmodel.onSaveShoe()}"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -116,7 +124,7 @@
             style="@style/AlternativeButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/button_margin_end"
             android:layout_marginEnd="32dp"
             android:onClick="@{() -> viewmodel.onCancelShoe()}"
             android:text="@android:string/cancel"

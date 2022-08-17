@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
-class InstructionsFragment : Fragment(){
-
+class InstructionsFragment : Fragment() {
 
 
     override fun onCreateView(
@@ -19,8 +16,7 @@ class InstructionsFragment : Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val instructionsBinding = DataBindingUtil.inflate<FragmentInstructionsBinding>(inflater,
-            R.layout.fragment_instructions,container,false)
+        val instructionsBinding = FragmentInstructionsBinding.inflate(inflater, container, false)
 
         instructionsBinding.start.setOnClickListener {
             findNavController().navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment())

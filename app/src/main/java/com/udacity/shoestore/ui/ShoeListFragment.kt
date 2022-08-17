@@ -4,8 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -30,13 +31,17 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
+        val binding = FragmentShoeListBinding.inflate(
             inflater,
-            R.layout.fragment_shoe_list,
             container,
             false
         )
         shoesListBinding = binding
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            requireActivity().finish()
+        }
+
 
 
         setHasOptionsMenu(true)
@@ -71,17 +76,19 @@ class ShoeListFragment : Fragment() {
         ) as LayoutInflater
         for (shoe in list) {
             val rowView: View = inflater.inflate(R.layout.shoe_item, null)
-            val name = rowView.findViewById<TextView>(R.id.name)
-            val size = rowView.findViewById<TextView>(R.id.size)
-            val company = rowView.findViewById<TextView>(R.id.company)
-            val description = rowView.findViewById<TextView>(R.id.description)
-            name.text = shoe.name
-            size.text = shoe.size.toInt().toString()
-            company.text = "Company: ${shoe.company}"
-            description.text = shoe.description
+            with(rowView) {
+                val name = findViewById<TextView>(R.id.name)
+                val size = findViewById<TextView>(R.id.size)
+                val company = findViewById<TextView>(R.id.company)
+                val description = findViewById<TextView>(R.id.description)
+                name.text = shoe.name
+                size.text = shoe.size.toInt().toString()
+                company.text = "Company: ${shoe.company}"
+                description.text = shoe.description
 
-            if (shoe.size != 0.0)
-                shoesListBinding?.shoesContainer?.addView(rowView)
+                if (shoe.size != 0.0)
+                    shoesListBinding?.shoesContainer?.addView(rowView)
+            }
         }
     }
 
@@ -93,9 +100,7 @@ class ShoeListFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
-                val action =
-                    ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment("logged")
-                NavHostFragment.findNavController(this).navigate(action)
+                NavHostFragment.findNavController(this).navigate(ShoeListFragmentDirections.actionShoeListFragmentToLoginFragment2())
             }
         }
         return super.onOptionsItemSelected(item)

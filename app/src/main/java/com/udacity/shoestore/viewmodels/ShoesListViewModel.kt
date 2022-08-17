@@ -1,5 +1,6 @@
 package com.udacity.shoestore.viewmodels
 
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,6 +22,18 @@ class ShoesListViewModel : ViewModel() {
 
     val nameText = MutableLiveData<String>()
     val sizeText = MutableLiveData<Int>()
+//    var dataBindingVariable =
+//        object : ObservableField<String>(sizeText.value.toString()) {
+//            override fun set(value: String?) {
+//                super.set(value)
+//                // a value has been set
+//                if (value == "null") {
+//                    sizeText.value = 0
+//                } else {
+//                    sizeText.value = value?.toIntOrNull() ?: sizeText.value
+//                }
+//            }
+//        }
     val companyText = MutableLiveData<String>()
     val descriptionText = MutableLiveData<String>()
 
@@ -74,4 +87,5 @@ class ShoesListViewModel : ViewModel() {
     fun shoeListComplete() {
         _shoeListNavigated.value = false
     }
+
 }

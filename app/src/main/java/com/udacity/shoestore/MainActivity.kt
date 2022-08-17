@@ -1,6 +1,5 @@
 package com.udacity.shoestore
 
-import android.app.TaskStackBuilder
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -37,5 +36,4 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
     }
-
 }

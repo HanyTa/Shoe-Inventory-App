@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentDetailsBinding
 import com.udacity.shoestore.viewmodels.ShoesListViewModel
 
@@ -25,7 +23,7 @@ class DetailsFragment : Fragment() {
     ): View? {
 
         detailsBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_details, container, false)
+            FragmentDetailsBinding.inflate(inflater, container, false)
 
 
         return detailsBinding.root
